@@ -26,14 +26,16 @@ function translatePigLatin(str) {
     if (str.startsWith(consonants.split('')[i])) {
       allConsonants.push(consonants.split('')[i]);
       str = str.slice(1);
-      // had to reset the loop to 0 just in case the consonants have showed up again.
+      // had to reset the loop to 0 just in case the consonants that  have already passed showed up again.
       i = 0;
     }
   };
 
+  // to add the ay to the end only  if any consonants have been found in the front.
   if (allConsonants.length !== 0) {
     str += allConsonants.join('') + 'ay';
   }
+  
   return str;
 }
 
